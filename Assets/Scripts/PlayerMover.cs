@@ -6,7 +6,7 @@ public class PlayerMover : MonoBehaviour
 {
     private float horizontalInput;
     private float frontPlayerSpeed = -7f;
-    private float sidePlayerSpeed = -70f;
+    private float sidePlayerSpeed = -20f;
     private float sideBorders = 2f;
    
     void Update()

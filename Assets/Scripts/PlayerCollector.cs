@@ -11,6 +11,8 @@ public class PlayerCollector : MonoBehaviour
     int pickCounter = 0;
     public GameObject textPlusOne;
     float timePassed = 0;
+    [SerializeField] public Animator Animator;
+    [SerializeField] public Rigidbody[] AllRigidbody;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,16 @@ public class PlayerCollector : MonoBehaviour
         //blockList 
         AddCubeToBottom();
         textPlusOne.SetActive(false);
+        StayOnCube();
+    }
+
+    void StayOnCube()
+    {
+        for(int i = 0; i < AllRigidbody.Length; i++)
+        {
+            AllRigidbody[i].isKinematic = true;
+        }
+        
     }
 
     // Update is called once per frame
