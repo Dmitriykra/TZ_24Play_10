@@ -175,8 +175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockList:
   - {fileID: 3481367610352654943}
-  lastBlock: {fileID: 0}
+  lastBlock: {fileID: 3481367610352654943}
   y: 0
+  textPlusOne: {fileID: 0}
 --- !u!120 &2064860586
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -228,8 +229,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.99230766
+        time: 0.009966779
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -268,11 +269,11 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
+    numCornerVertices: 2
+    numCapVertices: 3
+    alignment: 1
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1

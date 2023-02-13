@@ -8,12 +8,16 @@ public class PlayerCollector : MonoBehaviour
     public GameObject lastBlock;
     float upHeight = 1.1f; 
     public float y; 
+    int pickCounter = 0;
+    public GameObject textPlusOne;
+    float timePassed = 0;
     
     // Start is called before the first frame update
     void Start()
     {
         //blockList 
         AddCubeToBottom();
+        textPlusOne.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,10 +31,24 @@ public class PlayerCollector : MonoBehaviour
 
         _gameObject.transform.SetParent(transform);
 
-        //blockList.Add(_gameObject);
         blockList.Add(_gameObject);
 
         AddCubeToBottom();
+        
+        pickCounter++;
+        Debug.Log(pickCounter);
+
+        for(int i = 0; i<pickCounter; i++)
+        {
+            textPlusOne.SetActive(true);
+            Invoke("hide", 1f);
+        }
+        
+    }
+
+    void hide()
+    {
+        textPlusOne.SetActive(false);
     }
 
     public void DecreaseBlock(GameObject _gameObject)

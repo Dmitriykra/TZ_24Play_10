@@ -10,10 +10,19 @@ public class ObjectSpawnerSc : MonoBehaviour
 
     void Start()
     {
-        GameObject firstCube = Instantiate(ground, ground.transform.position, Quaternion.identity);
+        GameObject firstCube = Instantiate(ground, 
+            ground.transform.position, Quaternion.identity);
+        
         listOfGrounds.Add(firstCube);
         StartCoroutine(SpawnCube());
-        StartCoroutine(DestroyCube());
+        //StartCoroutine(DestroyCube());
+    }
+
+    private void Update() {
+        if(Input.GetMouseButton(0))
+        {
+            DestroyGround();
+        }
     }
 
     IEnumerator SpawnCube()
@@ -37,9 +46,21 @@ public class ObjectSpawnerSc : MonoBehaviour
         }
     }
 
+    void DestroyGround(){
+        GameObject[] grounds = GameObject.FindGameObjectsWithTag("Ground");
+        foreach (GameObject ground in grounds)
+        {
+            if (ground.transform.position.z > 
+                UnityEngine.Camera.main.WorldToScreenPoint(transform.position).z)
+            {
+                Destroy(ground, 2f);
+            }
+        }
+    }
+
     IEnumerator DestroyCube()
     {
-        while (true)
+        while (Input.GetMouseButton(0))
         {
             if(listOfGrounds.Count > 3)
             {

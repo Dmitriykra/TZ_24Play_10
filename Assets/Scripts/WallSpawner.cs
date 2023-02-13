@@ -29,10 +29,8 @@ public class WallSpawner : MonoBehaviour
                 newZ_pos++;
             }
             timePassed += Time.deltaTime;
+            DestroyWall();
         }
-
-        DestroyWall();
-        
     }
 
     void DestroyWall(){

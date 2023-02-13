@@ -9,23 +9,19 @@ public class PlayerMover : MonoBehaviour
     private float sidePlayerSpeed = -70f;
     private float sideBorders = 2f;
    
-
-    // Update is called once per frame
     void Update()
     {
-    
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && Menu.menuManager.gameState)
         {
             horizontalInput = Input.GetAxis("Mouse X");
+            FrontMove();
+            SideMove();
         }
 
         else 
         {
             horizontalInput = 0f;
         } 
-
-        FrontMove();
-        SideMove();
     }
 
     private void FrontMove()
@@ -44,7 +40,4 @@ public class PlayerMover : MonoBehaviour
         transform.position = new Vector3(xAxisMove, 
             transform.position.y, transform.position.z);
     }
-
-
-
 }

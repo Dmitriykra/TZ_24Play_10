@@ -41,6 +41,8 @@ public class PickUpSpawner : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetMouseButton(0))
+        {
         if(timePassed >= activeTime)
             {
                 CreatNewCubeSet();
@@ -49,7 +51,8 @@ public class PickUpSpawner : MonoBehaviour
             }
             timePassed += Time.deltaTime;
         
-        DestroyPickUp();  
+        DestroyPickUp();
+        }  
     } 
 
     void DestroyPickUp()
